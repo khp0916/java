@@ -28,13 +28,13 @@ package com.himedia.java;
 // 문자를 저장하는데 사용되며, 하나의 문자만 저장할 수 있다.
 // 크기 : 2byte
 // 범위 : \u0000 ~ \uffff
-//  - 정수형 : byte, short, int, long
+// - 정수형 : byte, short, int, long
 // 정수를 저장하는데 사용된다. byte는 이진데이터를 다룰 때, short는 C언어와의 호환을 위해 추가되었다.
-// 크기 : byte(1byte-8bit), short(2byte), int(4byte), ling(8byte)
-// 범위 : byte(-128 ~ 127), short(-32,768 ~ 32,767), int(-2,147,483,648 ~ 2,147,483,647), long()
-//  - 실수형 : float, double
+// 크기 : byte(1byte-8bit), short(2byte), int(4byte), long(8byte)
+// 범위 : byte(-128 ~ 127), short(-32,768 ~ 32,767), int(-2,147,483,648 ~ 2,147,483,647), long(-9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807)
+// - 실수형 : float, double
 // 크기 : float(4byte), double(8byte)
-// 범위 : float(1.4E-45 ~ 3.4028235E38), double(4.9E-324 ~
+// 범위 : float(1.4E-45 ~ 3.4028235E38), double(4.9E-324 ~ 1.7976931348623157E308)
 
 // * 상수(Constant) : 변수와 마찬가지로 '값을 저장할 수 있는 공간'이지만,
 // 변수와 달리 한 번 값을 저장하면 다른 값으로 변경할 수 없다.
@@ -45,59 +45,48 @@ package com.himedia.java;
 
 public class B_variable_function {
 
-
-//    public static void main(String[] args) {
-//        String myStr = "안녕하세요!";
-//        System.out.println(myStr);
-//
-//        int num = 10;
-//        System.out.println(num);
-//
-//        byte bNum = 127;
-//        System.out.println(bNum);
-//        bNum = (byte)128;
-//        System.out.println(bNum);
-//
-//        float fNum = 3.14f;
-//        System.out.println(fNum);
-//
-//        double dNum = 3.14159265358979;
-//        System.out.println(dNum);
-//
-//        fNum = (float)3.14159265358979;
-//        System.out.println(fNum);
-//
-//        final float PI = 3.14f;
-//        // PI = 3.15; // 에러
-//
-//
-//    }
-
-    public static int add(int a, int b) {
-        // 수행
-        int sum = a + b;
-        return sum;
-    }
-
-    public static int minus(int a, int b) {
-        // 수행
-        int minus = a - b;
-        return minus;
-    }
-
-    // minus 함수
-
-    // muiltply 함수
-
-    // divide 함수
-
     public static void main(String[] args) {
         // 함수 호출
-        int result = add(3,5);
+        int result = add(3, 5);
         System.out.println(result);
 
         int a = 10;
         int b = 3;
+        // 호출
+        // 호출후 받은 결과값 출력
+        result = minus(a, b);
+        System.out.println(result);
+        result = multiply(a, b);
+        System.out.println(result);
+        double dResult = divide(a, b);
+        System.out.println(dResult);
+
+    }
+
+    public static void exam1() {
+
+        String myStr = "안녕하세요!";
+        System.out.println(myStr);
+
+        int num = 10;
+        System.out.println(num);
+
+        byte bNum = 127;
+        System.out.println(bNum);
+        bNum = (byte)128;
+        System.out.println(bNum);
+
+        float fNum = 3.14f;
+        System.out.println(fNum);
+
+        double dNum = 3.14432534564;
+        System.out.println(dNum);
+
+        fNum = (float)3.142982134078243095783;
+        System.out.println(fNum);
+
+        final float PI = 3.14f;
+        // PI = 3.15; // 에러
     }
 
     /*
@@ -106,4 +95,26 @@ public class B_variable_function {
      *  2. 매개변수(Parameters) : 매개변수는 함수가 작업을 수행하는데 필요한 입력값을 전달받는 부분이다.
      *  3. 반환 타입(Return type) : 함수가 어떤 유형의 값을 반환할지를 정의.
      */
+    public static int add(int a, int b) {
+        // 수행
+        int sum = a + b;
+        return sum;
+    }
+
+    // minus함수
+    public static int minus(int a, int b) {
+        int minus = a - b;
+        return minus;
+    }
+
+    // multiply함수(곱하기)
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    // divide(나누기) : 소수점으로 반환 받는다.
+    public static double divide(int a, int b) {
+        return a / b;
+    }
+
 }
