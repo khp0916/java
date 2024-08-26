@@ -1,4 +1,4 @@
-package com.himedia.practice;
+package com.himedia.java.practice;
 
 public class F_operator {
     public static void exam1() {

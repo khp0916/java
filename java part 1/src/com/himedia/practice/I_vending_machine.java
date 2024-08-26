@@ -1,4 +1,4 @@
-package com.himedia.practice;
+package com.himedia.java.practice;
 
 import java.util.Scanner;
 
@@ -32,7 +32,6 @@ public class I_vending_machine {
     public static void printException() {
         System.out.println("잔돈이 부족합니다.");
     }
-
 
     public static void main(String[] args) {
         int totalMoney = 0;

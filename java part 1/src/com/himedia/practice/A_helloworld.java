@@ -1,4 +1,4 @@
-package com.himedia.practice;
+package com.himedia.java.practice;
 
 public class A_helloworld {
     public static void main(String[] args) {

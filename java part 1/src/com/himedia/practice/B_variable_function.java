@@ -1,4 +1,4 @@
-package com.himedia.practice;
+package com.himedia.java.practice;
 
 public class B_variable_function {
     public static int add(int a, int b) {
