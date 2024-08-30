@@ -28,17 +28,31 @@ package com.himedia.java;
 
 public class F_constructor {
     public static void main(String[] args) {
-
         F_person1 p1 = new F_person1();
         p1.display();
 
+//        new F_person2(); //만약 매개변수가 있는 생성자가 하나라도 선언되어 있으면
+        // 기본 생성자는 자동으로 생성되지 않는다.
         F_person2 p2 = new F_person2("John", 13);
         p2.display();
 
-        F_person3 p3 = new F_person3("John");
+        F_person3 p3 = new F_person3();
         p3.display();
 
-        p3 = new F_person3("John", 13);
+        p3 = new F_person3("John3");
         p3.display();
+
+        p3 = new F_person3("John3", 13);
+        p3.display();
+
+        F_person4 p4 = new F_person4("David", 40);
+        F_person4 pCopy = new F_person4(p4);
+
+        p4.display();
+        pCopy.display();
+
+        // * 생성자에서 다른 생성자 호출하기 = this()
+        // - 생성자의 이름으로 클래스 이름 대신 this를 사용한다.
+        F_person5 p5 = new F_person5();
     }
 }
