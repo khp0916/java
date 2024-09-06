@@ -10,6 +10,4 @@ public interface AccountBook {
     boolean checkDate(String date);
 
     String getNowDateTime();
-
-
 }

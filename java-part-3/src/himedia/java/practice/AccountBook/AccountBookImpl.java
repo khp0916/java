@@ -10,8 +10,8 @@ public class AccountBookImpl implements AccountBook {
     private Map<String, List<String>> HistoryMap;
 
     public AccountBookImpl() {
-        HistoryMap = new HashMap<>();
         details = new ArrayList<>();
+        HistoryMap = new HashMap<>();
     }
 
     @Override
@@ -34,9 +34,11 @@ public class AccountBookImpl implements AccountBook {
         String name = sc.nextLine();
         System.out.println("항목의 금액을 입력해주세요.");
         String price = sc.nextLine();
-
         // 같은 날짜가 존재할때 변수
-        details.add(name + " : " + price + "원");
+        if (!HistoryMap.containsKey(getNowDateTime())) {
+            details.clear();
+        }
+        details.add(name + " : " + price);
         HistoryMap.put(getNowDateTime(), details);
     }
 
@@ -56,15 +58,16 @@ public class AccountBookImpl implements AccountBook {
             // 존재하는 날짜의 내역 프린트하기 -> 맵의 키값을 입력받아 밸류 값 출력
             List<String> dateDetails = HistoryMap.get(date);
             for (int i = 0; i < dateDetails.size(); i++) {
-                System.out.println(dateDetails.get(i));
+                System.out.println("[" + (i+1) + "]" + dateDetails.get(i) + "원");
             }
-            // 합계 출력하기
-            for (int j = 0; j < details.size(); j++) {
-                int Money += Integer.parseInt(details.get(j));
-            }
-            System.out.println("합계 : " + Money + "입니다.");
         }
-
+        // 합계 출력하기
+        int Money = 0;
+        for( int i=0; i<details.size(); i++ ) {
+            String[] money = details.get(i).split(" ");
+            Money += Integer.parseInt(money[2]);
+        }
+        System.out.println("합계 : " + Money + " 입니다.");
     }
 
     @Override
@@ -74,6 +77,13 @@ public class AccountBookImpl implements AccountBook {
 
     @Override
     public void deleteHistory() {
+        System.out.println("삭제할 내역이 속한 날짜를 조회합니다.");
+        printHistory();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("삭제를 원하는 항목 번호를 입력하세요.");
+        int deleteNum = Integer.parseInt(sc.nextLine());
+        details.remove(deleteNum-1);
+        System.out.println("해당 내역이 정상적으로 삭제되었습니다.");
 
     }
 

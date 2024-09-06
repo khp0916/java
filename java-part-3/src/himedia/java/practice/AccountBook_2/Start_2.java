@@ -1,10 +1,13 @@
-package himedia.java.practice.AccountBook;
+package himedia.java.practice.AccountBook_2;
 
 /*
-가계부 1 (collections 사용할 것)
+가계부 2 (File I/O 사용할 것)
 기능
 AccountBook.java[i], AccountBookImpl.java, Start.java
 1. 가계부 내역 추가
+-> 오늘 날짜의 파일(.txt)이 없으면 자동으로 생성한다.
+-> 있으면 기존 내역에 해당 내용을 추가한다.
+-> 추가 형식 :
 공책 : 1000원
 연필 : 300원
 합계 : 1300원
@@ -15,18 +18,19 @@ AccountBook.java[i], AccountBookImpl.java, Start.java
 2024-09-02
 2024-09-01
 -> 제목을 입력하면 (2024-09-04) 해당 날짜의 내역들이 나온다.
-3. 전체 삭제
-- 제목을 입력한 날짜와 내역을 삭제시킨다.
-4. 내역 삭제
-- 내역들 중 특정 항목을 삭제시킬 수 있다.
-5. 프로그램 종료
+3. 삭제
+-> 제목을 입력한 파일을 삭제시킨다.
+4. 프로그램 종료
  */
 
-public class Start {
+import himedia.java.practice.AccountBook.AccountBook;
+import himedia.java.practice.AccountBook.AccountBookImpl;
 
+public class Start_2 {
     public static void main(String[] args) {
 
-        AccountBook accountBook = new AccountBookImpl();
+        AccountBook_2 accountBook = new AccountBookImpl_2();
+        accountBook.createFolder();
 
         while (true) {
             int choice = accountBook.printMenu();
@@ -38,12 +42,9 @@ public class Start {
                     accountBook.printHistory();
                     break;
                 case 3:
-                    accountBook.deleteAll();
-                    break;
-                case 4:
                     accountBook.deleteHistory();
                     break;
-                case 5:
+                case 4:
                     System.out.println("이용해주셔서 감사합니다.");
                     return;
                 default:
@@ -52,5 +53,4 @@ public class Start {
             }
         }
     }
-
 }
