@@ -62,7 +62,7 @@ public class AccountBookImpl_2 implements AccountBook_2 {
 
         if ( Files.notExists(todayFile) ) {
             try ( FileOutputStream fos = new FileOutputStream(todayFile.toFile()) ) {
-                String content = name + " : " + price;
+                String content = name + " : " + price + "\n";
                 fos.write(content.getBytes());
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
@@ -70,13 +70,16 @@ public class AccountBookImpl_2 implements AccountBook_2 {
                 throw new RuntimeException(e);
             }
         } else {
-            try (FileInputStream fis = new FileInputStream(todayFile.toFile())) {
-
-            } catch (FileNotFoundException e) {
+            try(Writer writer = new FileWriter(todayFile.toFile())) {
+                String content = name + " : " + price + "\n";
+                writer.write(content);
+            }
+            catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+
         }
     }
 
