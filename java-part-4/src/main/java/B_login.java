@@ -38,7 +38,7 @@ public class B_login {
         name = sc.nextLine();
         System.out.println("AGE?");
         age = sc.nextInt();
-        sc.nextLine();
+        sc.nextLine(); // nextInt가
         System.out.println("PHONE?");
         phone = sc.nextLine();
 
@@ -70,7 +70,9 @@ public class B_login {
 //        Fail
 //        Nothing!
         Scanner sc = new Scanner(System.in);
-
+        System.out.println("ID?");
+        int id = sc.nextInt();
+        System.out.println("PW?");
     }
 
     public static void main(String[] args) {
