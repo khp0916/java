@@ -1,21 +1,19 @@
 package Notice;
 
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
-
-/*
-[공지사항]
+public class Start_2 {
+    /*
+    [공지사항]
 - 데이터베이스 설계
 Notice 데이터베이스 생성
 User 테이블 -> 회원정보
-회원 번호
-회원 이름
-회원 아이디
-회원 비밀번호
+-KEYNUM : 회원 번호
+-NAME : 회원 이름
+-ID : 회원 아이디
+-PW : 회원 비밀번호
 Content 테이블 -> 공지사항 내용
-글 번호
-글 내용
-등록(or 마지막 수정) 날짜
+CONNUM : 글 번호
+CONT : 글 내용
+CONDATE : 등록(or 마지막 수정) 날짜
 설계 후 생성할 것.
 구조 : Notice.java(I) NoticeImpl.java Start.java
 -기능
@@ -35,54 +33,44 @@ Content 테이블 -> 공지사항 내용
 7. 로그아웃
 8. 회원 탈퇴
 9. 프로그램 종료
- */
+     */
 
-public class Start {
     public static void main(String[] args) {
-        // 한글 정상화 출력 코드
-        setCharacter();
-        Notice notice = new NoticeImpl();
-
+        Notice_2 notice2 = new Notice2Impl_2();
         while (true) {
-            int choice = notice.printMenu();
+            int choice = notice2.printMenu();
             switch (choice) {
                 case 1:
-                    notice.signIn();
+                    notice2.loginMenu();
                     break;
                 case 2:
-                    notice.signUp();
+                    notice2.signUp();
                     break;
                 case 3:
-                    notice.getList();
+                    notice2.readContentsList();
                     break;
                 case 4:
-                    notice.newNotice();
+                    notice2.writeContent();
                     break;
                 case 5:
-                    notice.updateNotice();
+                    notice2.editContent();
                     break;
                 case 6:
-                    notice.deleteNotice();
+                    notice2.deleteContent();
                     break;
                 case 7:
-                    notice.signOut();
+                    notice2.logoutMenu();
                     break;
                 case 8:
-                    notice.leave();
+                    notice2.deleteId();
                     break;
                 case 9:
-                    System.out.println("다음에 또 만나요!");
+                    System.out.println("이용해주셔서 감사합니다.");
                     return;
+                default:
+                    System.out.println("잘못 선택하셨습니다.");
+                    break;
             }
-        }
-
-    }
-
-    private static void setCharacter() {
-        try {
-            System.setOut(new PrintStream(System.out, true, "UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
         }
     }
 }

@@ -1,14 +1,13 @@
 package Notice;
 
 public interface Notice {
-
     int printMenu();
-    void loginMenu();
     void signUp();
-    void readContentsList();
-    void writeContent();
-    void editContent();
-    void deleteContent();
-    void logoutMenu();
-    void deleteId();
+    void signIn();
+    void newNotice();
+    void getList();
+    void updateNotice();
+    void deleteNotice();
+    void signOut();
+    void leave();
 }
