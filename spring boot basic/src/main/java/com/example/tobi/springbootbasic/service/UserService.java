@@ -36,6 +36,8 @@ public class UserService {
                 .toMemberResponseDTO();
     }
 
+    public
+
     public void createUser(User user) {
         userMapper.insertUser(user);
     }

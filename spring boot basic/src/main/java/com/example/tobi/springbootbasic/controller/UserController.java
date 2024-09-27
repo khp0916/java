@@ -38,6 +38,12 @@ public class UserController {
         return "user-update";
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteForm(@PathVariable Long id, Model model) {
+
+        return "user-delete";
+    }
+
 //    @GetMapping("/update")
 //    public String updateForm(@RequestParam("id") Long id, Model model) {
 //        System.out.println("id :: " + id);
