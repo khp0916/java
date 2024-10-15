@@ -23,7 +23,7 @@ $(document).ready(function() {
     });
 
     // 비밀번호 확인 후 프로필 섹션 보여주기
-    $('#checkPassword input').on('input', function() {
+    $('.checkBtnByPW input').on('input', function() {
         const inputPassword = $(this).val();
         const storedPassword = sessionStorage.getItem('password'); // 세션에서 비밀번호 가져오기
 
@@ -35,17 +35,17 @@ $(document).ready(function() {
         }
     });
 
-    // 회원 탈퇴를 위한 비밀번호 확인 프로세스
-    $('#withdraw input').on('input', function () {
-        const inputPassword = $(this).val();
-        const storedPassword = sessionStorage.getItem('password'); // 세션에서 비밀번호 가져오기
-
-        if (inputPassword === storedPassword) {
-            alert("비밀번호가 일치합니다.");
-        } else {
-            alert("비밀번호가 일치하지 않습니다.");
-        }
-    });
+    // // 회원 탈퇴를 위한 비밀번호 확인 프로세스
+    // $('#withdraw input').on('input', function () {
+    //     const inputPassword = $(this).val();
+    //     const storedPassword = sessionStorage.getItem('password'); // 세션에서 비밀번호 가져오기
+    //
+    //     if (inputPassword === storedPassword) {
+    //         alert("비밀번호가 일치합니다.");
+    //     } else {
+    //         alert("비밀번호가 일치하지 않습니다.");
+    //     }
+    // });
 
     // 페이지 로드 시 프로필 섹션 비밀번호 확인을 위해 editProfile 숨기기
     $('#editProfile').hide();
